@@ -41,11 +41,10 @@
 #include <sensor_msgs/PointCloud2.h>
 #include <string>
 
-#include <apc_msgs/DoSegmentation.h>
 #include <segmentation/segmentation.hpp>
-
-#include <apc_msgs/DoSegmentationAction.h>
-#include <apc_msgs/EnablePublisher.h>
+#include <cpf_segmentation_ros/DoSegmentation.h>
+#include <cpf_segmentation_ros/DoSegmentationAction.h>
+#include <cpf_segmentation_ros/EnablePublisher.h>
 
 #include <actionlib/server/simple_action_server.h>
 
@@ -140,7 +139,7 @@ class SegmentationNode {
     * @return
     */
     void doSegmentation() {
-        apc_msgs::DoSegmentationResult result;
+        cpf_segmentation_ros::DoSegmentationResult result;
         pcl::PointCloud<pcl::PointXYZL>::Ptr segmented_pc_ptr;
 
         std::vector<int> removedIndices;
@@ -176,8 +175,8 @@ class SegmentationNode {
     * @param resp
     * @return
     */
-    bool enablePublisher(apc_msgs::EnablePublisher::Request &req,
-                         apc_msgs::EnablePublisher::Response &resp) {
+    bool enablePublisher(cpf_segmentation_ros::EnablePublisher::Request &req,
+                         cpf_segmentation_ros::EnablePublisher::Response &resp) {
         ROS_INFO("Publisher set to %d\n", req.enable);
         publisherEnabled_ = req.enable;
         return true;
@@ -189,8 +188,8 @@ class SegmentationNode {
     * @param res the output point cloud
     * @return true if the service succeeded
     */
-    bool doSegmentation(apc_msgs::DoSegmentation::Request &req,
-                        apc_msgs::DoSegmentation::Response &res) {
+    bool doSegmentation(cpf_segmentation_ros::DoSegmentation::Request &req,
+                        cpf_segmentation_ros::DoSegmentation::Response &res) {
         sensor_msgs::PointCloud2 seg_msg;
         pcl::PointCloud<pcl::PointXYZL>::Ptr segmented_pc_ptr;
 
@@ -273,7 +272,7 @@ class SegmentationNode {
     ros::ServiceServer enablePublisherSrv_;
 
     // action libs
-    actionlib::SimpleActionServer<apc_msgs::DoSegmentationAction> actionServer_;
+    actionlib::SimpleActionServer<cpf_segmentation_ros::DoSegmentationAction> actionServer_;
 
     boost::thread *segmentation_thread;
 

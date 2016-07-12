@@ -1,20 +1,19 @@
 <?xml version="1.0"?>
 <package>
-  <name>segmentation_ros</name>
+  <name>cpf_segmentation_ros</name>
   <version>0.0.0</version>
   <description>The segmentation_ros package</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag --> 
   <!-- Example:  -->
   <!-- <maintainer email="jane.doe@example.com">Jane Doe</maintainer> -->
-  <maintainer email="trung.pham@adelaide.edu.au">Trung Pham
-  email="markus.eich@qut.edu.au">Markus Eich</maintainer>
-
+  <maintainer  email="trung.pham@adelaide.edu.au">Trung Pham</maintainer>
+  <maintainer  email="markus.eich@qut.edu.au">Markus Eich</maintainer>
 
   <!-- One license tag required, multiple allowed, one license per tag -->
   <!-- Commonly used license strings: -->
   <!--   BSD, MIT, Boost Software License, GPLv2, GPLv3, LGPLv2.1, LGPLv3 -->
-  <license>BSD</license>
+  <license>Apache 2.0</license>
 
 
   <!-- Url tags are optional, but mutiple are allowed, one per tag -->
@@ -40,16 +39,22 @@
   <!-- Use test_depend for packages you need only for testing: -->
   <!--   <test_depend>gtest</test_depend> -->
 
-  <build_depend>apc_msgs</build_depend>
   <build_depend>roscpp</build_depend>
   <build_depend>std_msgs</build_depend>
   <build_depend>pcl_conversions</build_depend>
-  
-  <run_depend>apc_msgs</run_depend>
+  <build_depend>pcl_msgs</build_depend>
+  <build_depend>message_generation</build_depend>
+  <build_depend>actionlib</build_depend>
+  <build_depend>actionlib_msgs</build_depend>
+   
   <run_depend>roscpp</run_depend>
   <run_depend>std_msgs</run_depend>
   <run_depend>pcl_conversions</run_depend>
- 
+  <run_depend>pcl_msgs</run_depend>
+  <run_depend>message_runtime</run_depend>
+  <run_depend>actionlib_msgs</run_depend>
+  <run_depend>actionlib</run_depend>
+  
   <buildtool_depend>catkin</buildtool_depend>
 
 
